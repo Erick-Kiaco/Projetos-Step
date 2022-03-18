@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="cadastro.css" />
+    <title>Fale Conosco e Serviços-Automecânica-Gap</title>
+    <!--Crie uma página para realizar o cadastro de Pessoas. Crie uma página contendo 5 inputs (nome, cpf, telefone, idt, cidade). Crie também 3 botões (Cadastrar, localizar e excluir). Os botões não terão eventos por enquanto-->
+  </head>
+  <script>
+    function verificarNome() {
+      //Retirar os  espaços vazios.
+      var n = document.getElementById("nome").value;
+      n = n.trim();
+
+      //Retirando os espaços duplos no meio do nome.
+      while (n.includes("  ")) {
+        n = n.replace("  ", " ");
+      }
+
+      if (!n.includes(" ")) {
+        alert("Escreva seu nome completo");
+        document.getElementById("nome").style.border = "2px solid red";
+      }
+      //Retirando números do nome e caracteres.
+      while (n.includes("0")) {
+        n = n.replace("0", "");
+      }
+
+      while (
+        n.includes("(") ||
+        n.includes(")") ||
+        n.includes("=") ||
+        n.includes("&") ||
+        n.includes("+") ||
+        n.includes("¨¨") ||
+        n.includes("#") ||
+        n.includes("$") ||
+        n.includes("@") ||
+        n.includes("%") ||
+        n.includes("_") ||
+        n.includes("-") ||
+        n.includes("!") ||
+        n.includes("[]") ||
+        n.includes("{}") ||
+        n.includes("?") ||
+        n.includes(";") ||
+        n.includes(".") ||
+        n.includes("/") ||
+        n.includes("\/")
+      ) {
+        n = n.replace("(", "");
+        n = n.replace(")", "");
+        n = n.replace("=", "");
+        n = n.replace("&", "");
+        n = n.replace("+", "");
+        n = n.replace("¨¨", "");
+        n = n.replace("#", "");
+        n = n.replace("$", "");
+        n = n.replace("@", "");
+        n = n.replace("%", "");
+        n = n.replace("_", "");
+        n = n.replace("-", "");
+        n = n.replace("!", "");
+        n = n.replace("[]", "");
+        n = n.replace("{}", "");
+        n = n.replace("?", "");
+        n = n.replace(";", "");
+        n = n.replace(".", "");
+        n = n.replace("/", "");
+        n = n.replace("\/", "");
+      }
+      n = n.replace("0", "");
+      n = n.replace("1", "");
+      n = n.replace("2", "");
+      n = n.replace("3", "");
+      n = n.replace("4", "");
+      n = n.replace("5", "");
+      n = n.replace("6", "");
+      n = n.replace("7", "");
+      n = n.replace("9", "");
+
+      if (n.includes(" ")) {
+        document.getElementById("nome").style.border = "2px solid green";
+      }
+
+      document.getElementById("nome").value = n;
+    }
+
+    function verificaEmail() {
+      let email = document.getElementById("email").value;
+
+      if (email.length < 5) {
+        document.getElementById("mensagem").innerHTML = "Digite seu email";
+      } else if (
+        !email.includes("z") &&
+        !email.includes("x") &&
+        !email.includes("c") &&
+        !email.includes("v") &&
+        !email.includes("b") &&
+        !email.includes("n") &&
+        !email.includes("m") &&
+        !email.includes("a") &&
+        !email.includes("s") &&
+        !email.includes("d") &&
+        !email.includes("f") &&
+        !email.includes("g") &&
+        !email.includes("h") &&
+        !email.includes("j") &&
+        !email.includes("k") &&
+        !email.includes("l") &&
+        !email.includes("q") &&
+        !email.includes("w") &&
+        !email.includes("e") &&
+        !email.includes("r") &&
+        !email.includes("t") &&
+        !email.includes("y") &&
+        !email.includes("u") &&
+        !email.includes("i") &&
+        !email.includes("o") &&
+        !email.includes("p")
+      ) {
+        document.getElementById("mensagem").innerHTML =
+          "Digite pelo menos um caracter do alfabeto";
+      } else if (!email.includes("@gmail.com")) {
+        document.getElementById("mensagem").innerHTML = "Digite o @gmail.com";
+      } else if (
+        email.indexOf("@gmail.com") != email.lastIndexOf("@gmail.com")
+      ) {
+        document.getElementById("mensagem").innerHTML =
+          "Digite o @gmail.com somente uma vez";
+      } else if (email.includes(" ")) {
+        document.getElementById("mensagem").innerHTML = "Não digite espaços";
+      } else if (
+        email.includes("#") ||
+        email.includes("$") ||
+        email.includes("!") ||
+        email.includes("%") ||
+        email.includes("¨") ||
+        email.includes("&") ||
+        email.includes("*") ||
+        email.includes("(") ||
+        email.includes(")")
+      ) {
+        document.getElementById("mensagem").innerHTML =
+          "Não digite caracteres especiais";
+      } else {
+        document.getElementById("mensagem").innerHTML =
+          "Email com o formato válido";
+      }
+    }
+
+    function verificarCPF() {
+      let cpf = document.getElementById("cpf").value;
+
+      if (cpf.length == 11) {
+        cpf =
+          cpf.substring(0, 3) +
+          "." +
+          cpf.substring(3, 6) +
+          "." +
+          cpf.substring(6, 9) +
+          "-" +
+          cpf.substring(9, 11);
+        document.getElementById("cpf").value = cpf;
+        document.getElementById("mensagemCPF").innerHTML =
+          "CPF com formato válido";
+      }
+    }
+
+    function verificarCelular() {
+      let numero = document.getElementById("telefone").value;
+
+      if (numero.length == 2) {
+        numero = "(" + numero.substring(0, 3) + ")";
+        document.getElementById("telefone").value = numero;
+      }
+    }
+
+    function verificarServicos() {
+      //Retirar os  espaços vazios.
+      var n = document.getElementById("estado").value;
+      n = n.trim();
+
+      //Retirando os espaços duplos no meio do serviço que o usuário escolher.
+      while (n.includes("  ")) {
+        n = n.replace("  ", " ");
+      }
+
+      if (!n.includes(" ")) {
+        alert("Escreva o serviço que você deseja");
+        document.getElementById("estado").style.border = "2px solid red";
+      }
+      //Retirando números e caracteres do serviço escolhido pelo usuário.
+      while (n.includes("0")) {
+        n = n.replace("0", "");
+      }
+
+      while (
+        n.includes("(") ||
+        n.includes(")") ||
+        n.includes("=") ||
+        n.includes("&") ||
+        n.includes("+") ||
+        n.includes("¨¨") ||
+        n.includes("#") ||
+        n.includes("$") ||
+        n.includes("@") ||
+        n.includes("%") ||
+        n.includes("_") ||
+        n.includes("-") ||
+        n.includes("!") ||
+        n.includes("[]") ||
+        n.includes("{}") ||
+        n.includes("?") ||
+        n.includes(";") ||
+        n.includes(".") ||
+        n.includes("/") ||
+        n.includes("\/")
+      ) {
+        n = n.replace("(", "");
+        n = n.replace(")", "");
+        n = n.replace("=", "");
+        n = n.replace("&", "");
+        n = n.replace("+", "");
+        n = n.replace("¨¨", "");
+        n = n.replace("#", "");
+        n = n.replace("$", "");
+        n = n.replace("@", "");
+        n = n.replace("%", "");
+        n = n.replace("_", "");
+        n = n.replace("-", "");
+        n = n.replace("!", "");
+        n = n.replace("[]", "");
+        n = n.replace("{}", "");
+        n = n.replace("?", "");
+        n = n.replace(";", "");
+        n = n.replace(".", "");
+        n = n.replace("/", "");
+        n = n.replace("\/", "");
+      }
+      n = n.replace("0", "");
+      n = n.replace("1", "");
+      n = n.replace("2", "");
+      n = n.replace("3", "");
+      n = n.replace("4", "");
+      n = n.replace("5", "");
+      n = n.replace("6", "");
+      n = n.replace("7", "");
+      n = n.replace("9", "");
+
+      if (n.includes(" ")) {
+        document.getElementById("estado").style.border = "2px solid green";
+      }
+
+      document.getElementById("estado").value = n;
+    }
+  </script>
+  <body>
+    <div class="box">
+      <form action="">
+        <fieldset class="legenda">
+          <legend class="l"><b>Cadastro Automecânica GAP</b></legend>
+          <br />
+          <div class="inputBox">
+            <input
+              type="text"
+              name="nome"
+              id="nome"
+              class="inputUser"
+              onblur="verificarNome()"
+              required
+            />
+            <label for="nome" class="labelInput">Nome completo:</label>
+          </div>
+          <br />
+          <div class="inputBox">
+            <input
+              type="text"
+              name="email"
+              id="email"
+              onchange="verificaEmail()"
+              class="inputUser"
+              required
+            />
+            <p id="mensagem"></p>
+            <label for="email" class="labelInput">Email:</label>
+          </div>
+          <br />
+          <div class="inputBox">
+            <input
+              type="tel"
+              name="telefone"
+              id="telefone"
+              onblur="verificarCelular()"
+              class="inputUser"
+              required
+            />
+            <label for="telefone" class="labelInput">Telefone:</label>
+          </div>
+          <br />
+          <p>Sexo:</p>
+          <input
+            type="radio"
+            id="feminino"
+            name="genero"
+            value="feminino"
+            required
+          />
+          <label for="feminino">Feminino</label>
+          <br />
+          <input
+            type="radio"
+            id="masculino"
+            name="genero"
+            value="masculino"
+            required
+          />
+          <label for="masculino">Masculino</label>
+          <br />
+          <input type="radio" id="outro" name="genero" value="outro" required />
+          <label for="outro">Outro</label>
+          <br />
+          <br />
+          <label for="data_nascimento"
+            ><b>Escolha o dia para revisão do seu carro:</b></label
+          >
+          <input
+            type="date"
+            name="data_nascimento"
+            id="data_nascimento"
+            class="inputUser"
+            required
+          />
+          <br />
+          <div>
+            <select class="option">
+              <option>Selecione sua Cidade</option>
+              <option>Minas Gerais</option>
+              <option>São Paulo</option>
+              <option>Rio Grande do Sul</option>
+              <option>Bahia</option>
+              <option>Paraná</option>
+              <option>Santa Catarina</option>
+              <option>Goiás</option>
+              <option>Piauí</option>
+              <option>Paraíba</option>
+              <option>Maranhão</option>
+              <option>Pernambuco</option>
+              <option>Ceará</option>
+              <option>Rio Grande do Norte</option>
+              <option>Pará</option>
+              <option>Mato Grosso</option>
+              <option>Tocantins</option>
+              <option>Alagoas</option>
+              <option>Rio de Janeiro</option>
+              <option>Mato Grosso do Sul</option>
+              <option>Espírito Santo</option>
+              <option>Sergipe</option>
+              <option>Amazonas</option>
+              <option>Rondônia</option>
+              <option>Acre</option>
+              <option>Amapá</option>
+              <option>Roraima</option>
+            </select>
+          </div>
+          <br />
+          <label for="cpf">CPF:</label>
+          <div class="inputBox">
+            <input
+              type="text"
+              name="cpf"
+              class="inputUser"
+              id="cpf"
+              onblur="verificarCPF()"
+            />
+            <p id="mensagemCPF"></p>
+          </div>
+          <br />
+          <div class="inputBox"></div>
+          <br />
+          <div class="inputBox">
+            <input
+              type="text"
+              name="estado"
+              id="estado"
+              onblur="verificarServicos()"
+              class="inputUser"
+              required
+            />
+            <label for="estado" class="labelInput">Serviço:</label>
+          </div>
+          <br />
+          <input type="reset" id="submit" />
+          <br />
+          <br />
+          <a href="recibo.html"
+            ><input type="submit" name="submit" id="submit"
+          /></a>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>

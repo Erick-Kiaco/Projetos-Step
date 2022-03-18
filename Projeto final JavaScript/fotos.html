@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="fotos.css" />
+    <title>Página de fotos de Serviços-Automcânica Gap</title>
+  </head>
+  <body>
+    <section class="principal">
+      <h2 class="topicos">
+        Fotos dos serviços prestados pela Automecânica Gap:
+      </h2>
+      <div class="links">
+        <div>
+          <img src="imagens/imgservicos.jpg" id="tela" />
+          <br />
+          <button onclick="passarImagem()">Próximo</button>
+          <button onclick="voltarImagem()">Anterior</button>
+        </div>
+        <a href="loginCompleto.html"
+          >Gostou dos serviços cadastre-se e agende uma revisão no seu carro!
+        </a>
+      </div>
+    </section>
+  </body>
+  <script>
+    let i = 0;
+    let imagens = [];
+
+    imagens.push("imagens/img1.jpg");
+    imagens.push("imagens/img2.jpg");
+    imagens.push("imagens/img3.jpg");
+    imagens.push("imagens/img4.jpg");
+
+    function passarImagem() {
+      i++;
+      if (i == 4) {
+        i = 0;
+      }
+      document.getElementById("tela").src = imagens[i];
+      console.log(i);
+    }
+
+    function voltarImagem() {
+      i--;
+      if (i < 0) {
+        i = 3;
+      }
+      document.getElementById("tela").src = imagens[i];
+      console.log(i);
+    }
+  </script>
+</html>

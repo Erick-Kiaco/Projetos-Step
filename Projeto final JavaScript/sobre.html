@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="sobre.css" />
+    <title>Página Sobre-Automcânica Gap</title>
+  </head>
+  <body>
+    <h2 class="comeco">Sobre o nosso autocenter:</h2>
+    <p class="paragrafo">
+      A Automecânica GAP,cuida do seu carrro da melhor forma possível,Ter um
+      carro facilita muito nossas vidas, pela praticidade e conforto que oferece
+      em trajetos para o trabalho, passeios e viagens, por exemplo. Mas pouca
+      gente sabe o básico de mecânica automotiva e, por isso, não toma os
+      cuidados devidos para sua manutenção, o que pode causar uma série de
+      problemas, de quebras de componentes a acidentes de trânsito. Assim, para
+      evitar situações desagradáveis e perigosas, é bom conhecer minimamente seu
+      carro por dentro,mas de forma profissional a Automecânica Gap soluciona os
+      problema do seu carro.
+    </p>
+    <section class="principal">
+      <h2 class="topicos">
+        Fotos dos serviços prestados pela Automecânica Gap:
+      </h2>
+      <div class="links">
+        <div>
+          <img src="imagens/imgservicos.jpg" id="tela" />
+          <br />
+          <button onclick="passarImagem()">Próximo</button>
+          <button onclick="voltarImagem()">Anterior</button>
+        </div>
+        <a href="servicos.html"
+          >Gostou,clique aqui para ver os serviços da Automecânica Gap!
+        </a>
+      </div>
+    </section>
+  </body>
+  <script>
+    let i = 0;
+    let imagens = [];
+
+    imagens.push("imagens/img1.jpg");
+    imagens.push("imagens/img2.jpg");
+    imagens.push("imagens/img3.jpg");
+    imagens.push("imagens/img4.jpg");
+
+    function passarImagem() {
+      i++;
+      if (i == 4) {
+        i = 0;
+      }
+      document.getElementById("tela").src = imagens[i];
+      console.log(i);
+    }
+
+    function voltarImagem() {
+      i--;
+      if (i < 0) {
+        i = 3;
+      }
+      document.getElementById("tela").src = imagens[i];
+      console.log(i);
+    }
+  </script>
+</html>

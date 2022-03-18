@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="loginCompleto.css" />
+    <title>Página de login e Fale Conosco-Automecânica Gap</title>
+  </head>
+  <script>
+    function verificarNome() {
+      //Retirar os  espaços vazios.
+      var n = document.getElementById("nome").value;
+      n = n.trim();
+
+      //Retirando os espaços duplos no meio do nome.
+      while (n.includes("  ")) {
+        n = n.replace("  ", " ");
+      }
+
+      if (!n.includes(" ")) {
+        alert("Escreva seu nome completo");
+        document.getElementById("nome").style.border = "2px solid red";
+      }
+      //Retirando números do nome e caracteres.
+      while (n.includes("0")) {
+        n = n.replace("0", "");
+      }
+
+      while (
+        n.includes("(") ||
+        n.includes(")") ||
+        n.includes("=") ||
+        n.includes("&") ||
+        n.includes("+") ||
+        n.includes("¨¨") ||
+        n.includes("#") ||
+        n.includes("$") ||
+        n.includes("@") ||
+        n.includes("%") ||
+        n.includes("_") ||
+        n.includes("-") ||
+        n.includes("!") ||
+        n.includes("[]") ||
+        n.includes("{}") ||
+        n.includes("?") ||
+        n.includes(";") ||
+        n.includes(".") ||
+        n.includes("/") ||
+        n.includes("\/")
+      ) {
+        n = n.replace("(", "");
+        n = n.replace(")", "");
+        n = n.replace("=", "");
+        n = n.replace("&", "");
+        n = n.replace("+", "");
+        n = n.replace("¨¨", "");
+        n = n.replace("#", "");
+        n = n.replace("$", "");
+        n = n.replace("@", "");
+        n = n.replace("%", "");
+        n = n.replace("_", "");
+        n = n.replace("-", "");
+        n = n.replace("!", "");
+        n = n.replace("[]", "");
+        n = n.replace("{}", "");
+        n = n.replace("?", "");
+        n = n.replace(";", "");
+        n = n.replace(".", "");
+        n = n.replace("/", "");
+        n = n.replace("\/", "");
+      }
+      n = n.replace("0", "");
+      n = n.replace("1", "");
+      n = n.replace("2", "");
+      n = n.replace("3", "");
+      n = n.replace("4", "");
+      n = n.replace("5", "");
+      n = n.replace("6", "");
+      n = n.replace("7", "");
+      n = n.replace("9", "");
+
+      if (n.includes(" ")) {
+        document.getElementById("nome").style.border = "2px solid green";
+      }
+
+      document.getElementById("nome").value = n;
+    }
+
+    function verificarSenha() {
+      //Retirando o espaço duplos no meio da senha.
+      while (n.includes("  ")) {
+        n = n.replace("  ", "");
+      }
+
+      if (!n.includes(" ")) {
+        alert("Escreva sua senha");
+        document.getElementById("senha").style.border = "2px solid red";
+      }
+      //Retirando números e caracteres da senha.
+      while (n.includes("0")) {
+        n = n.replace("0", "");
+      }
+
+      while (
+        n.includes("(") ||
+        n.includes(")") ||
+        n.includes("=") ||
+        n.includes("&") ||
+        n.includes("+") ||
+        n.includes("¨¨") ||
+        n.includes("#") ||
+        n.includes("$") ||
+        n.includes("@") ||
+        n.includes("%") ||
+        n.includes("_") ||
+        n.includes("-") ||
+        n.includes("!") ||
+        n.includes("[]") ||
+        n.includes("{}") ||
+        n.includes("?") ||
+        n.includes(";") ||
+        n.includes(".") ||
+        n.includes("/") ||
+        n.includes("\/")
+      ) {
+        n = n.replace("(", "");
+        n = n.replace(")", "");
+        n = n.replace("=", "");
+        n = n.replace("&", "");
+        n = n.replace("+", "");
+        n = n.replace("¨¨", "");
+        n = n.replace("#", "");
+        n = n.replace("$", "");
+        n = n.replace("@", "");
+        n = n.replace("%", "");
+        n = n.replace("_", "");
+        n = n.replace("-", "");
+        n = n.replace("!", "");
+        n = n.replace("[]", "");
+        n = n.replace("{}", "");
+        n = n.replace("?", "");
+        n = n.replace(";", "");
+        n = n.replace(".", "");
+        n = n.replace("/", "");
+        n = n.replace("\/", "");
+      }
+      n = n.replace("0", "");
+      n = n.replace("1", "");
+      n = n.replace("2", "");
+      n = n.replace("3", "");
+      n = n.replace("4", "");
+      n = n.replace("5", "");
+      n = n.replace("6", "");
+      n = n.replace("7", "");
+      n = n.replace("9", "");
+
+      if (n.includes(" ")) {
+        document.getElementById("senha").style.border = "2px solid green";
+      }
+
+      document.getElementById("senha").value = n;
+    }
+
+    function verificarFc() {
+      //Retirar os  espaços vazios da opinião do usuário do site.
+      var n = document.getElementById("fale").value;
+      n = n.trim();
+
+      //Retirando os espaços duplos no meio da opinião do usuário.
+      while (n.includes("  ")) {
+        n = n.replace("  ", " ");
+      }
+
+      if (!n.includes(" ")) {
+        alert("Escreva a sua opinião");
+        document.getElementById("fale").style.border = "2px solid red";
+      }
+      //Retirando números e caracteres da opinião do usuário.
+      while (n.includes("0")) {
+        n = n.replace("0", "");
+      }
+
+      while (
+        n.includes("(") ||
+        n.includes(")") ||
+        n.includes("=") ||
+        n.includes("&") ||
+        n.includes("+") ||
+        n.includes("¨¨") ||
+        n.includes("#") ||
+        n.includes("$") ||
+        n.includes("@") ||
+        n.includes("%") ||
+        n.includes("_") ||
+        n.includes("-") ||
+        n.includes("!") ||
+        n.includes("[]") ||
+        n.includes("{}") ||
+        n.includes("?") ||
+        n.includes(";") ||
+        n.includes(".") ||
+        n.includes("/") ||
+        n.includes("\/")
+      ) {
+        n = n.replace("(", "");
+        n = n.replace(")", "");
+        n = n.replace("=", "");
+        n = n.replace("&", "");
+        n = n.replace("+", "");
+        n = n.replace("¨¨", "");
+        n = n.replace("#", "");
+        n = n.replace("$", "");
+        n = n.replace("@", "");
+        n = n.replace("%", "");
+        n = n.replace("_", "");
+        n = n.replace("-", "");
+        n = n.replace("!", "");
+        n = n.replace("[]", "");
+        n = n.replace("{}", "");
+        n = n.replace("?", "");
+        n = n.replace(";", "");
+        n = n.replace(".", "");
+        n = n.replace("/", "");
+        n = n.replace("\/", "");
+      }
+      n = n.replace("0", "");
+      n = n.replace("1", "");
+      n = n.replace("2", "");
+      n = n.replace("3", "");
+      n = n.replace("4", "");
+      n = n.replace("5", "");
+      n = n.replace("6", "");
+      n = n.replace("7", "");
+      n = n.replace("9", "");
+
+      if (n.includes(" ")) {
+        document.getElementById("fale").style.border = "2px solid green";
+      }
+
+      document.getElementById("fale").value = n;
+    }
+  </script>
+  <body>
+    <header>
+      <div class="tela-login">
+        <h1>login</h1>
+        <br />
+        <h2>Automecânica Gap</h2>
+        <br />
+        <input
+          type="text"
+          placeholder="Nome"
+          id="nome"
+          onblur="verificarNome()"
+        />
+        <br /><br />
+        <input
+          type="password"
+          placeholder="Senha somente com letras"
+          id="senha"
+          onblur="verificarSenha()"
+        />
+        <br /><br />
+        <input
+          type="text"
+          placeholder="Fale conosco"
+          id="fale"
+          onblur="verificarFc()"
+        />
+        <br /><br />
+        <button><a href="recibo.html" class="a">Enviar</a></button>
+        <br />
+        <br />
+        <button>
+          <a href="cadastroPrincipal.html" class="a"
+            >Não tem conta,cadastre-se</a
+          >
+        </button>
+      </div>
+    </header>
+  </body>
+</html>
